@@ -8,6 +8,7 @@ import { InnerLogicService } from '../carousel/inner-logic.service';
 export class HackerComponent {
 
   constructor(@Optional() innerLogicService: InnerLogicService) {
+    console.log(innerLogicService);
     if(innerLogicService) {
       innerLogicService.timer = 100;
     }
