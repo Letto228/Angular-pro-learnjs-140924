@@ -6,9 +6,11 @@
   <button (click)="onClickClear()">Clear</button>
 </div>
 
-<div #viewContainer></div>
+<ng-container #viewContainer></ng-container>
+<ng-container *ngComponentOutlet="component$ | async; injector: componentInjector"></ng-container>
+<ng-container *ngTemplateOutlet="declaratedTemplateRef; context: {$implicit: 'Egor', adres: 'Dom'}"></ng-container>
 
-<ng-template #declaratedTemplateRef>
-  <h3>Its template</h3>
+<ng-template #declaratedTemplateRef let-name let-test="adres">
+  <h3>Its template: {{name}} - {{test}}</h3>
   <app-declarated></app-declarated>
 </ng-template>
